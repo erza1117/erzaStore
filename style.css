@@ -465,6 +465,12 @@ textarea {
   .mobile-menu {
     display: grid;
   }
+  .header-cta {
+    display: none !important;
+  }
+  .mobile-menu .cta {
+    display: none !important;
+  }
   .stats {
     grid-template-columns: 1fr;
   }
