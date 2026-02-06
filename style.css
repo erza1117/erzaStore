@@ -292,11 +292,16 @@ h2 {
   box-shadow: var(--shadow);
 }
 
-.game-tile img {
-  width: 100%;
+.game-label {
+  display: grid;
+  place-items: center;
   height: 120px;
-  object-fit: cover;
-  display: block;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: #111;
+  padding: 0 8px;
 }
 
 .game-tile.selected {

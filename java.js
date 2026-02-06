@@ -365,7 +365,14 @@ const renderGameGallery = () => {
     button.className = "game-tile";
     button.dataset.game = game.id;
     button.title = game.label;
-    button.innerHTML = `<img src="${game.image}" alt="${game.label}" />`;
+    const words = game.label.split(" ");
+    const line1 = words[0] || game.label;
+    const line2 = words.slice(1).join(" ");
+    button.innerHTML = `
+      <span class="game-label">
+        ${line1}${line2 ? `<br>${line2}` : ""}
+      </span>
+    `;
     button.addEventListener("click", () => {
       currentGameId = game.id;
       gameSelect.value = game.label;
