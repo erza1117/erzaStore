@@ -340,7 +340,7 @@ const toggleFields = (category) => {
   if (category === "pln") {
     targetInput.placeholder = "Nomor Pelanggan / ID Meter";
   } else if (category === "game") {
-    targetInput.placeholder = "Contoh: 0812xxxxxxx atau ID game";
+    targetInput.placeholder = "ID";
   } else if (category === "bank") {
     targetInput.placeholder = "Nomor tujuan / rekening";
   } else {
