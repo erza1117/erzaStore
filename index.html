@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ERZA CELL - Top Up Game, Pulsa, PLN, Transfer Bank</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <span class="logo">E</span>
+        <div>
+          <div class="brand-name">ERZA CELL</div>
+          <div class="brand-tag">Top Up Game - Pulsa - PLN - Transfer Bank</div>
+        </div>
+      </div>
+      <nav class="menu">
+        <a href="#layanan">Layanan</a>
+        <a href="#produk">Produk</a>
+        <a href="#order">Order</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button id="menuToggle" class="menu-toggle" aria-label="Buka menu" aria-expanded="false">
+        Menu
+      </button>
+      <a class="cta" href="#order">Order Sekarang</a>
+    </div>
+  </header>
+
+  <div id="mobileMenu" class="mobile-menu" hidden>
+    <a href="#layanan">Layanan</a>
+    <a href="#produk">Produk</a>
+    <a href="#order">Order</a>
+    <a href="#faq">FAQ</a>
+    <a class="cta" href="#order">Order Sekarang</a>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Buka 24 Jam - Proses Cepat</div>
+          <h1>Semua kebutuhan konter digital, dalam satu tempat.</h1>
+          <p class="lead">
+            Top up game favorit, isi pulsa dan paket data, beli token PLN atau bayar tagihan,
+            hingga transfer ke bank dengan admin transparan.
+          </p>
+          <div class="hero-actions">
+            <a class="cta" href="#order">Mulai Order</a>
+            <a class="ghost" href="#produk">Lihat Produk</a>
+          </div>
+          <div class="stats">
+            <div>
+              <div class="stat-num">99.8%</div>
+              <div class="stat-label">Sukses Instan</div>
+            </div>
+            <div>
+              <div class="stat-num">500+</div>
+              <div class="stat-label">Produk Top Up</div>
+            </div>
+            <div>
+              <div class="stat-num">5 Menit</div>
+              <div class="stat-label">Rata-rata Proses</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-header">Ringkas & Jelas</div>
+          <ul class="hero-list">
+            <li>Harga real-time dan transparan</li>
+            <li>Konfirmasi otomatis via WhatsApp</li>
+            <li>Support human admin</li>
+            <li>Metode bayar lengkap</li>
+          </ul>
+          <div class="hero-note">Masukkan data tujuan dengan benar untuk transaksi cepat.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="layanan" class="services">
+      <div class="container">
+        <h2>Layanan Utama</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Top Up Game</h3>
+            <p>Mobile Legends, Free Fire, PUBG, Valorant, Steam Wallet, dan lainnya.</p>
+          </article>
+          <article class="card">
+            <h3>Pulsa & Data</h3>
+            <p>Semua operator: Telkomsel, Indosat, XL, Tri, Smartfren.</p>
+          </article>
+          <article class="card">
+            <h3>PLN Token & Tagihan</h3>
+            <p>Beli token listrik prabayar atau bayar tagihan pascabayar.</p>
+          </article>
+          <article class="card">
+            <h3>Transfer Bank</h3>
+            <p>Transfer ke bank besar, biaya admin jelas, proses cepat.</p>
+          </article>
+          <article class="card">
+            <h3>PDAM</h3>
+            <p>Bayar tagihan air PDAM dengan proses cepat.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="produk" class="products">
+      <div class="container">
+        <div class="section-head">
+          <h2>Produk Populer</h2>
+          <p>Pilih kategori untuk melihat daftar pilihan favorit pelanggan.</p>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-category="game" role="tab">Top Up Game</button>
+          <button class="tab" data-category="pulsa" role="tab">Pulsa</button>
+          <button class="tab" data-category="pln" role="tab">Token Listrik</button>
+          <button class="tab" data-category="bank" role="tab">Transfer Bank</button>
+          <button class="tab" data-category="pdam" role="tab">PDAM</button>
+        </div>
+        <div id="gameGallery" class="game-gallery" aria-label="Pilih game"></div>
+        <div id="productGrid" class="product-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="order" class="order">
+      <div class="container order-grid">
+        <div>
+          <h2>Form Order Cepat</h2>
+          <p>Lengkapi data di bawah ini. Kami akan memproses dan mengirimkan bukti transaksi.</p>
+          <form id="orderForm" class="order-form">
+            <label>
+              Kategori
+              <select id="categorySelect" name="category" required>
+                <option value="game">Top Up Game</option>
+                <option value="pulsa">Pulsa</option>
+                <option value="pln">Token Listrik</option>
+                <option value="bank">Transfer Bank</option>
+                <option value="pdam">PDAM</option>
+              </select>
+            </label>
+
+            <label id="gameField">
+              Game
+              <select id="gameSelect" name="game">
+                <option>Mobile Legends</option>
+                <option>Free Fire</option>
+                <option>PUBG Mobile</option>
+                <option>Valorant</option>
+                <option>Steam Wallet</option>
+              </select>
+            </label>
+
+            <label id="operatorField" class="hidden">
+              Operator
+              <select id="operatorSelect" name="operator">
+                <option>Telkomsel</option>
+                <option>Indosat</option>
+                <option>XL</option>
+                <option>Tri</option>
+                <option>Smartfren</option>
+              </select>
+            </label>
+
+            <label id="plnTypeField" class="hidden">
+              Layanan PLN
+              <select id="plnSelect" name="pln">
+                <option value="token">Token Prabayar</option>
+                <option value="tagihan">Tagihan Pascabayar</option>
+              </select>
+            </label>
+
+            <label id="bankField" class="hidden">
+              Bank Tujuan
+              <select id="bankSelect" name="bank">
+                <option>BCA</option>
+                <option>BRI</option>
+                <option>BNI</option>
+                <option>Mandiri</option>
+                <option>BSI</option>
+              </select>
+            </label>
+
+            <label>
+              Nomor Tujuan / ID Pelanggan
+              <input id="targetInput" name="target" placeholder="Contoh: 0812xxxxxxx atau ID game" autocomplete="off" required />
+            </label>
+
+            <label>
+              Pilih Nominal
+              <select id="amountSelect" name="amount" required></select>
+            </label>
+
+            <label id="bankAmountField" class="hidden">
+              Nominal Transfer (Rp)
+              <input id="bankAmountInput" name="bank_amount" type="text" inputmode="numeric" maxlength="11" placeholder="Contoh: 150.000" />
+              <div id="bankAmountError" class="form-hint hidden">Nominal yang Anda masukkan melebihi batas Rp 10.000.000.</div>
+            </label>
+
+            <label id="bankAccountField" class="hidden">
+              Nama Penerima
+              <input id="bankAccountInput" name="bank_account" placeholder="Nama penerima" />
+            </label>
+
+            <label id="paymentField">
+              Metode Bayar
+              <select id="paySelect" name="payment" required>
+                <option>QRIS</option>
+                <option>E-Wallet</option>
+                <option>Cash</option>
+              </select>
+            </label>
+
+            <label>
+              Catatan (opsional)
+              <textarea id="noteInput" name="note" rows="3" placeholder="Contoh: kirim bukti via WA"></textarea>
+            </label>
+
+            <button type="submit" class="cta">Kirim Order</button>
+            <div class="form-hint">Dengan menekan tombol, kamu setuju pada syarat layanan kami.</div>
+            <div class="form-hint">*Note: Tidak menerima hutang.</div>
+            <div id="plnHint" class="form-hint hidden">Pembayaran Token Listrik akan dikonfirmasi lewat WhatsApp.</div>
+          </form>
+        </div>
+
+        <aside class="summary">
+          <h3>Ringkasan Order</h3>
+          <div class="summary-line"><span>Kategori</span><strong id="sumCategory">-</strong></div>
+          <div class="summary-line"><span>Produk</span><strong id="sumProduct">-</strong></div>
+          <div class="summary-line"><span>Nominal</span><strong id="sumAmount">-</strong></div>
+          <div class="summary-line"><span>Admin</span><strong id="sumFee">-</strong></div>
+          <div class="summary-total"><span>Total</span><strong id="sumTotal">-</strong></div>
+          <div class="summary-note">Transaksi akan diproses setelah pembayaran dikonfirmasi.</div>
+          <div class="contact">
+            <div>WhatsApp Admin</div>
+            <div class="contact-number">081337729336</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2>Ulasan Pelanggan</h2>
+        <div class="cards">
+          <article class="card">
+            <p>"Top up ML langsung masuk, adminnya responsif banget."</p>
+            <div class="muted">anam</div>
+          </article>
+           <article class="card">
+            <p>"Beli pulsa cepat masuk, prosesnya rapi."</p>
+            <div class="muted">Vita</div>
+          </article>
+          <article class="card">
+            <p>"Isi token PLN cepat, harga jelas, recommended!"</p>
+            <div class="muted">saadah</div>
+          </article>
+          <article class="card">
+            <p>"Transfer ke bank aman, admin kasih bukti lengkap."</p>
+            <div class="muted">nanda</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="container">
+        <h2>FAQ</h2>
+        <details open>
+          <summary>Berapa lama proses top up?</summary>
+          <p>Rata-rata 1-5 menit setelah pembayaran terkonfirmasi.</p>
+        </details>
+        <details>
+          <summary>Kalau salah input nomor bagaimana?</summary>
+          <p>Segera hubungi admin. Kami bantu semaksimal mungkin sesuai kebijakan provider.</p>
+        </details>
+        <details>
+          <summary>Apakah bisa transaksi malam hari?</summary>
+          <p>Bisa, tapi hanya sampai jam 9 malam. Kami juga butuh istirahat.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-name">ERZA CELL</div>
+        <div class="muted">Layanan konter digital lengkap dan terpercaya.</div>
+      </div>
+      <div>
+        <div class="footer-title">Kontak</div>
+        <div class="muted">WhatsApp: 081337729336</div>
+        <div class="muted">Instagram: @erzaadhiandra_t</div>
+      </div>
+      <div>
+        <div class="footer-title">Jam Operasional</div>
+        <div class="muted">04:00 AM - 09:00 PM</div>
+      </div>
+    </div>
+    <div class="container footer-bottom">2026 ERZA CELL. All rights reserved.</div>
+  </footer>
+
+  <script src="java.js"></script>
+</body>
+</html>
