@@ -229,6 +229,10 @@ const bankAmountError = document.getElementById("bankAmountError");
 const paymentField = document.getElementById("paymentField");
 const plnHint = document.getElementById("plnHint");
 const targetInput = document.getElementById("targetInput");
+const targetLabelText = document.getElementById("targetLabelText");
+const paySelect = document.getElementById("paySelect");
+const walletField = document.getElementById("walletField");
+const walletSelect = document.getElementById("walletSelect");
 
 const gameField = document.getElementById("gameField");
 const operatorField = document.getElementById("operatorField");
@@ -306,6 +310,7 @@ const smoothScrollTo = (element, duration = 900) => {
 };
 
 const renderAmounts = (category) => {
+  if (!amountSelect) return;
   amountSelect.innerHTML = "";
   if (category === "game") {
     const game = getGameById(currentGameId);
@@ -318,7 +323,7 @@ const renderAmounts = (category) => {
     return;
   }
 
-  amountOptions[category].forEach((amount) => {
+  amountOptions[category]?.forEach((amount) => {
     const option = document.createElement("option");
     option.value = amount;
     option.textContent = `Rp ${amount}`;
@@ -334,16 +339,23 @@ const toggleFields = (category) => {
   bankAccountField.classList.toggle("hidden", category !== "bank");
   bankAmountField.classList.toggle("hidden", category !== "bank");
   gameGallery.classList.toggle("hidden", category !== "game");
-  amountSelect.parentElement.classList.toggle("hidden", category === "bank");
+  if (amountSelect) {
+    amountSelect.parentElement.classList.toggle("hidden", category === "bank");
+  }
   paymentField.classList.toggle("hidden", category === "pln");
   plnHint.classList.toggle("hidden", category !== "pln");
+  walletField.classList.toggle("hidden", paySelect.value !== "E-Wallet" || category === "pln");
   if (category === "pln") {
+    targetLabelText.textContent = "Nomor Pelanggan / ID Meter";
     targetInput.placeholder = "Nomor Pelanggan / ID Meter";
   } else if (category === "game") {
+    targetLabelText.textContent = "Masukkan ID";
     targetInput.placeholder = "ID";
   } else if (category === "bank") {
+    targetLabelText.textContent = "Nomor Tujuan / Rekening";
     targetInput.placeholder = "Nomor tujuan / rekening";
   } else {
+    targetLabelText.textContent = "Nomor Tujuan";
     targetInput.placeholder = "Contoh: 0812xxxxxxx";
   }
 
@@ -437,29 +449,36 @@ categorySelect.addEventListener("change", (event) => {
   }
 });
 
-amountSelect.addEventListener("change", () => {
+paySelect.addEventListener("change", () => {
   const category = categorySelect.value;
-  if (category === "game") {
-    const game = getGameById(currentGameId);
-    const selectedOption = amountSelect.options[amountSelect.selectedIndex];
-    const base = Number(selectedOption.value);
-    sumProduct.textContent = `${game.label} - ${selectedOption.textContent}`;
+  walletField.classList.toggle("hidden", paySelect.value !== "E-Wallet" || category === "pln");
+});
+
+if (amountSelect) {
+  amountSelect.addEventListener("change", () => {
+    const category = categorySelect.value;
+    if (category === "game") {
+      const game = getGameById(currentGameId);
+      const selectedOption = amountSelect.options[amountSelect.selectedIndex];
+      const base = Number(selectedOption.value);
+      sumProduct.textContent = `${game.label} - ${selectedOption.textContent}`;
+      sumAmount.textContent = formatIDR(base);
+      sumFee.textContent = formatIDR(fees[category]);
+      sumTotal.textContent = formatIDR(base + fees[category]);
+      return;
+    }
+
+    if (category === "bank") {
+      return;
+    }
+
+    const amount = amountSelect.value.replace(/\./g, "");
+    const base = Number(amount);
     sumAmount.textContent = formatIDR(base);
     sumFee.textContent = formatIDR(fees[category]);
     sumTotal.textContent = formatIDR(base + fees[category]);
-    return;
-  }
-
-  if (category === "bank") {
-    return;
-  }
-
-  const amount = amountSelect.value.replace(/\./g, "");
-  const base = Number(amount);
-  sumAmount.textContent = formatIDR(base);
-  sumFee.textContent = formatIDR(fees[category]);
-  sumTotal.textContent = formatIDR(base + fees[category]);
-});
+  });
+}
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -467,9 +486,15 @@ form.addEventListener("submit", (event) => {
   const fee = fees[category];
   sumFee.textContent = formatIDR(fee);
 
-  const selectedAmountOption = amountSelect.options[amountSelect.selectedIndex];
-  const amountText = selectedAmountOption ? selectedAmountOption.textContent : "-";
+  const amountText = sumAmount.textContent && sumAmount.textContent !== "-" ? sumAmount.textContent : "-";
   const productText = sumProduct.textContent && sumProduct.textContent !== "-" ? sumProduct.textContent : "Belum dipilih";
+
+  const paymentText =
+    category === "pln"
+      ? "Pembayaran: via WhatsApp"
+      : paySelect.value === "E-Wallet"
+        ? `Metode Bayar: E-Wallet (${walletSelect.value})`
+        : `Metode Bayar: ${paySelect.value}`;
 
   const messageLines = [
     "Halo ERZA CELL, saya mau order:",
@@ -477,7 +502,7 @@ form.addEventListener("submit", (event) => {
     `Produk: ${productText}`,
     `Nominal: ${amountText}`,
     `Tujuan: ${document.getElementById("targetInput").value}`,
-    category === "pln" ? "Pembayaran: via WhatsApp" : `Metode Bayar: ${document.getElementById("paySelect").value}`,
+    paymentText,
     `Catatan: ${document.getElementById("noteInput").value || "-"}`,
     "Mohon konfirmasi ya."
   ];

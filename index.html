@@ -42,7 +42,7 @@
       <div class="container hero-grid">
         <div>
           <div class="badge">Buka 24 Jam - Proses Cepat</div>
-          <h1>Semua kebutuhan konter digital, dalam satu tempat.</h1>
+          <h1>Semua kebutuhan digital anda, dalam satu tempat.</h1>
           <p class="lead">
             Top up game favorit, isi pulsa dan paket data, beli token PLN atau bayar tagihan,
             hingga transfer ke bank dengan admin transparan.
@@ -128,7 +128,7 @@
     <section id="order" class="order">
       <div class="container order-grid">
         <div>
-          <h2>Form Order Cepat</h2>
+          <h2>Payment</h2>
           <p>Lengkapi data di bawah ini. Kami akan memproses dan mengirimkan bukti transaksi.</p>
           <form id="orderForm" class="order-form">
             <label>
@@ -184,13 +184,8 @@
             </label>
 
             <label>
-              Nomor Tujuan / ID Pelanggan
+              <span id="targetLabelText">Masukkan ID</span>
               <input id="targetInput" name="target" placeholder="Contoh: 0812xxxxxxx atau ID game" autocomplete="off" required />
-            </label>
-
-            <label>
-              Pilih Nominal
-              <select id="amountSelect" name="amount" required></select>
             </label>
 
             <label id="bankAmountField" class="hidden">
@@ -210,6 +205,16 @@
                 <option>QRIS</option>
                 <option>E-Wallet</option>
                 <option>Cash</option>
+              </select>
+            </label>
+            
+            <label id="walletField" class="hidden">
+              Pilih E-Wallet
+              <select id="walletSelect" name="wallet">
+                <option>OVO</option>
+                <option>DANA</option>
+                <option>GoPay</option>
+                <option>LinkAja</option>
               </select>
             </label>
 
