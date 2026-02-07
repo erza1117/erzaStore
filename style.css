@@ -556,7 +556,7 @@ textarea {
     display: inline-block;
   }
   .mobile-menu {
-    display: grid;
+    display: none;
   }
   .header-cta {
     display: none !important;
