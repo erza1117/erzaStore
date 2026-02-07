@@ -17,111 +17,116 @@ const games = [
   {
     id: "ml",
     label: "Mobile Legends",
-    image: makePlaceholder("MOBILE LEGENDS"),
+    image: "img/mole.jpg",
+    useImage: true,
     items: [
-      { name: "5 Diamonds", price: 3000 },
-      { name: "10 Diamonds", price: 4000 },
-      { name: "28 Diamonds", price: 9000 },
-      { name: "59 Diamonds", price: 17000 },
-      { name: "74 Diamonds", price: 21000 },
-      { name: "110 Diamonds", price: 31000 },
-      { name: "148 Diamonds", price: 41000 },
-      { name: "184 Diamonds", price: 51000 },
-      { name: "258 Diamonds", price: 70000 },
-      { name: "284 Diamonds", price: 77000 },
-      { name: "301 Diamonds", price: 80000 },
-      { name: "346 Diamonds", price: 93000 },
-      { name: "384 Diamonds", price: 104000 },
-      { name: "424 Diamonds", price: 115000 },
-      { name: "518 Diamonds", price: 138000 },
-      { name: "WDP 1x", price: 31000 },
-      { name: "WDP 2x", price: 59000 },
-      { name: "WDP 3x", price: 89000 },
-      { name: "WDP 4x", price: 118000 },
-      { name: "WDP 5x", price: 140000 }
+      { name: "5 Diamonds", price: 3000, icon: "img/dm.png" },
+      { name: "10 Diamonds", price: 4000, icon: "img/dm.png" },
+      { name: "28 Diamonds", price: 9000, icon: "img/dm.png" },
+      { name: "59 Diamonds", price: 17000, icon: "img/dm.png" },
+      { name: "74 Diamonds", price: 21000, icon: "img/dm.png" },
+      { name: "110 Diamonds", price: 31000, icon: "img/dm.png" },
+      { name: "148 Diamonds", price: 41000, icon: "img/dm.png" },
+      { name: "184 Diamonds", price: 51000, icon: "img/dm.png" },
+      { name: "258 Diamonds", price: 70000, icon: "img/dm.png" },
+      { name: "284 Diamonds", price: 77000, icon: "img/dm.png" },
+      { name: "301 Diamonds", price: 80000, icon: "img/dm.png" },
+      { name: "346 Diamonds", price: 93000, icon: "img/dm.png" },
+      { name: "384 Diamonds", price: 104000, icon: "img/dm.png" },
+      { name: "424 Diamonds", price: 115000, icon: "img/dm.png" },
+      { name: "518 Diamonds", price: 138000, icon: "img/dm.png" },
+      { name: "WDP 1x", price: 31000, icon: "img/wdp.png" },
+      { name: "WDP 2x", price: 59000, icon: "img/wdp.png" },
+      { name: "WDP 3x", price: 89000, icon: "img/wdp.png" },
+      { name: "WDP 4x", price: 118000, icon: "img/wdp.png" },
+      { name: "WDP 5x", price: 140000, icon: "img/wdp.png" }
     ]
   },
   {
     id: "ff",
     label: "Free Fire",
-    image: makePlaceholder("FREE FIRE"),
+    image: "img/ff.jpg",
+    useImage: true,
     items: [
-      { name: "10 Diamonds", price: 3000 },
-      { name: "70 Diamonds", price: 10000 },
-      { name: "140 Diamonds", price: 19000 },
-      { name: "210 Diamonds", price: 30000 },
-      { name: "355 Diamonds", price: 45000 },
-      { name: "375 Diamonds", price: 50000 },
-      { name: "425 Diamonds", price: 54000 },
-      { name: "500 Diamonds", price: 63000 },
-      { name: "720 Diamonds", price: 89000 },
-      { name: "860 Diamonds", price: 106000 },
-      { name: "930 Diamonds", price: 115000 },
-      { name: "1.075 Diamonds", price: 135000 },
-      { name: "1.440 Diamonds", price: 177000 },
-      { name: "2.000 Diamonds", price: 245000 },
-      { name: "2.355 Diamonds", price: 287000 },
-      { name: "3.640 Diamonds", price: 442000 },
-      { name: "4.000 Diamonds", price: 483000 },
-      { name: "BP Card", price: 45000 },
-      { name: "MM", price: 30000 },
-      { name: "MB", price: 87000 }
+      { name: "10 Diamonds", price: 3000, icon: "img/dm.png" },
+      { name: "70 Diamonds", price: 10000, icon: "img/dm.png" },
+      { name: "140 Diamonds", price: 19000, icon: "img/dm.png" },
+      { name: "210 Diamonds", price: 30000, icon: "img/dm.png" },
+      { name: "355 Diamonds", price: 45000, icon: "img/dm.png" },
+      { name: "375 Diamonds", price: 50000, icon: "img/dm.png" },
+      { name: "425 Diamonds", price: 54000, icon: "img/dm.png" },
+      { name: "500 Diamonds", price: 63000, icon: "img/dm.png" },
+      { name: "720 Diamonds", price: 89000, icon: "img/dm.png" },
+      { name: "860 Diamonds", price: 106000, icon: "img/dm.png" },
+      { name: "930 Diamonds", price: 115000, icon: "img/dm.png" },
+      { name: "1.075 Diamonds", price: 135000, icon: "img/dm.png" },
+      { name: "1.440 Diamonds", price: 177000, icon: "img/dm.png" },
+      { name: "2.000 Diamonds", price: 245000, icon: "img/dm.png" },
+      { name: "2.355 Diamonds", price: 287000, icon: "img/dm.png" },
+      { name: "3.640 Diamonds", price: 442000, icon: "img/dm.png" },
+      { name: "4.000 Diamonds", price: 483000, icon: "img/dm.png" },
+      { name: "BP Card", price: 45000, icon: "img/bp-card.png" },
+      { name: "MM", price: 30000, icon: "img/mm.png" },
+      { name: "MB", price: 87000, icon: "img/mb.png" }
     ]
   },
   {
     id: "pubg",
     label: "PUBG Mobile",
-    image: makePlaceholder("PUBG MOBILE"),
+    image: "img/pubg.jpg",
+    useImage: true,
     items: [
-      { name: "180 UC", price: 47231 },
-      { name: "240 UC", price: 62308 },
-      { name: "360 + 25 Bonus UC", price: 92461 },
-      { name: "420 + 25 Bonus UC", price: 107538 },
-      { name: "480 + 25 Bonus UC", price: 122615 },
-      { name: "540 + 25 Bonus UC", price: 137692 },
-      { name: "660 + 60 Bonus UC", price: 167846 },
-      { name: "720 + 60 Bonus UC", price: 182923 },
-      { name: "780 + 60 Bonus UC", price: 198000 },
-      { name: "840 + 60 Bonus UC", price: 213077 },
-      { name: "900 + 85 Bonus UC", price: 228153 },
-      { name: "1020 + 85 Bonus UC", price: 258307 },
-      { name: "1080 + 85 Bonus UC", price: 273384 },
-      { name: "1200 + 120 Bonus UC", price: 303538 },
-      { name: "1320 + 120 Bonus UC", price: 333692 },
-      { name: "1380 + 120 Bonus UC", price: 348769 },
-      { name: "1620 + 300 Bonus UC", price: 409076 },
-      { name: "1680 + 300 Bonus UC", price: 424153 }
+      { name: "180 UC", price: 47231, icon: "img/uc.png" },
+      { name: "240 UC", price: 62308, icon: "img/uc.png" },
+      { name: "360 + 25 Bonus UC", price: 92461, icon: "img/uc.png" },
+      { name: "420 + 25 Bonus UC", price: 107538, icon: "img/uc.png" },
+      { name: "480 + 25 Bonus UC", price: 122615, icon: "img/uc.png" },
+      { name: "540 + 25 Bonus UC", price: 137692, icon: "img/uc.png" },
+      { name: "660 + 60 Bonus UC", price: 167846, icon: "img/uc.png" },
+      { name: "720 + 60 Bonus UC", price: 182923, icon: "img/uc.png" },
+      { name: "780 + 60 Bonus UC", price: 198000, icon: "img/uc.png" },
+      { name: "840 + 60 Bonus UC", price: 213077, icon: "img/uc.png" },
+      { name: "900 + 85 Bonus UC", price: 228153, icon: "img/uc.png" },
+      { name: "1020 + 85 Bonus UC", price: 258307, icon: "img/uc.png" },
+      { name: "1080 + 85 Bonus UC", price: 273384, icon: "img/uc.png" },
+      { name: "1200 + 120 Bonus UC", price: 303538, icon: "img/uc.png" },
+      { name: "1320 + 120 Bonus UC", price: 333692, icon: "img/uc.png" },
+      { name: "1380 + 120 Bonus UC", price: 348769, icon: "img/uc.png" },
+      { name: "1620 + 300 Bonus UC", price: 409076, icon: "img/uc.png" },
+      { name: "1680 + 300 Bonus UC", price: 424153, icon: "img/uc.png" }
     ]
   },
   {
     id: "valorant",
     label: "Valorant",
-    image: makePlaceholder("VALORANT"),
+    image: "img/valo.jpg",
+    useImage: true,
     items: [
-      { name: "475 VP", price: 55278 },
-      { name: "1000 VP", price: 108556 },
-      { name: "1475 VP", price: 161833 },
-      { name: "2050 VP", price: 215111 },
-      { name: "2525 VP", price: 268389 },
-      { name: "3050 VP", price: 321667 },
-      { name: "3650 VP", price: 372091 },
-      { name: "4125 VP", price: 425369 },
-      { name: "4650 VP", price: 478647 },
-      { name: "5350 VP", price: 533827 },
-      { name: "5700 VP", price: 585202 },
-      { name: "5825 VP", price: 587105 },
-      { name: "6350 VP", price: 640383 },
-      { name: "7300 VP", price: 742182 },
-      { name: "7400 VP", price: 746938 },
-      { name: "9000 VP", price: 903918 },
-      { name: "11000 VP", price: 1047578 },
-      { name: "11475 VP", price: 1100856 }
+      { name: "475 VP", price: 55278, icon: "img/vp.png" },
+      { name: "1000 VP", price: 108556, icon: "img/vp.png" },
+      { name: "1475 VP", price: 161833, icon: "img/vp.png" },
+      { name: "2050 VP", price: 215111, icon: "img/vp.png" },
+      { name: "2525 VP", price: 268389, icon: "img/vp.png" },
+      { name: "3050 VP", price: 321667, icon: "img/vp.png" },
+      { name: "3650 VP", price: 372091, icon: "img/vp.png" },
+      { name: "4125 VP", price: 425369, icon: "img/vp.png" },
+      { name: "4650 VP", price: 478647, icon: "img/vp.png" },
+      { name: "5350 VP", price: 533827, icon: "img/vp.png" },
+      { name: "5700 VP", price: 585202, icon: "img/vp.png" },
+      { name: "5825 VP", price: 587105, icon: "img/vp.png" },
+      { name: "6350 VP", price: 640383, icon: "img/vp.png" },
+      { name: "7300 VP", price: 742182, icon: "img/vp.png" },
+      { name: "7400 VP", price: 746938, icon: "img/vp.png" },
+      { name: "9000 VP", price: 903918, icon: "img/vp.png" },
+      { name: "11000 VP", price: 1047578, icon: "img/vp.png" },
+      { name: "11475 VP", price: 1100856, icon: "img/vp.png" }
     ]
   },
   {
     id: "steam",
     label: "Steam Wallet",
-    image: makePlaceholder("STEAM WALLET"),
+    image: "img/steam.jpg",
+    useImage: true,
     items: [
       { name: "Steam Wallet 12.000", price: 14000 },
       { name: "Steam Wallet 45.000", price: 47000 },
@@ -269,9 +274,13 @@ const renderProducts = (items, category, prefixLabel = "") => {
   items.forEach((item) => {
     const card = document.createElement("div");
     card.className = "product";
+    const iconHtml = item.icon ? `<div class="product-icon"><img src="${item.icon}" alt=""></div>` : "";
     const showPrice = item.price > 0;
     card.innerHTML = `
-      <div>${prefixLabel ? `${prefixLabel} - ${item.name}` : item.name}</div>
+      <div class="product-title">
+        ${iconHtml}
+        <div>${prefixLabel ? `${prefixLabel} - ${item.name}` : item.name}</div>
+      </div>
       ${showPrice ? `<div class="price">${formatIDR(item.price)}</div>` : ""}
       <div class="muted">Klik untuk pilih</div>
     `;
@@ -377,14 +386,18 @@ const renderGameGallery = () => {
     button.className = "game-tile";
     button.dataset.game = game.id;
     button.title = game.label;
-    const words = game.label.split(" ");
-    const line1 = words[0] || game.label;
-    const line2 = words.slice(1).join(" ");
-    button.innerHTML = `
-      <span class="game-label">
-        ${line1}${line2 ? `<br>${line2}` : ""}
-      </span>
-    `;
+    if (game.useImage) {
+      button.innerHTML = `<img src="${game.image}" alt="${game.label}" />`;
+    } else {
+      const words = game.label.split(" ");
+      const line1 = words[0] || game.label;
+      const line2 = words.slice(1).join(" ");
+      button.innerHTML = `
+        <span class="game-label">
+          ${line1}${line2 ? `<br>${line2}` : ""}
+        </span>
+      `;
+    }
     button.addEventListener("click", () => {
       currentGameId = game.id;
       gameSelect.value = game.label;

@@ -214,6 +214,7 @@ h1 {
 .services,
 .products,
 .order,
+.payments,
 .testimonials,
 .faq {
   padding: 60px 0;
@@ -285,6 +286,7 @@ h2 {
   box-shadow: 0 10px 20px rgba(31, 26, 23, 0.08);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  aspect-ratio: 1 / 1;
 }
 
 .game-tile:hover {
@@ -295,13 +297,20 @@ h2 {
 .game-label {
   display: grid;
   place-items: center;
-  height: 120px;
+  height: 100%;
   text-align: center;
   font-weight: 700;
   font-size: 1.05rem;
   line-height: 1.2;
   color: #111;
   padding: 0 8px;
+}
+
+.game-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .game-tile.selected {
@@ -324,6 +333,31 @@ h2 {
   gap: 10px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-title {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid var(--stroke);
+}
+
+.product-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .product:hover {
@@ -449,6 +483,65 @@ textarea {
 
 .muted {
   color: var(--muted);
+}
+
+.payments {
+  background: #2c2f36;
+  color: #fff;
+  margin: 0 auto;
+  width: min(1120px, 92%);
+  border-radius: 18px;
+}
+
+.payments-title {
+  text-align: center;
+}
+
+.payments .muted {
+  text-align: center;
+}
+
+.payments .muted {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.payment-marquee {
+  position: relative;
+  overflow: hidden;
+  margin-top: 22px;
+  padding: 10px 0;
+}
+
+.payment-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: payment-scroll 18s linear infinite;
+}
+
+.payment-track img {
+  width: 140px;
+  height: 44px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px 10px;
+  flex-shrink: 0;
+}
+
+@keyframes payment-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .payment-track {
+    animation: none;
+  }
 }
 
 .hidden {
