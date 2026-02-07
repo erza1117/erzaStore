@@ -276,10 +276,16 @@ const renderProducts = (items, category, prefixLabel = "") => {
     card.className = "product";
     const iconHtml = item.icon ? `<div class="product-icon"><img src="${item.icon}" alt=""></div>` : "";
     const showPrice = item.price > 0;
+    const titleText =
+      prefixLabel && item.name.toLowerCase().startsWith(prefixLabel.toLowerCase())
+        ? item.name
+        : prefixLabel
+          ? `${prefixLabel} - ${item.name}`
+          : item.name;
     card.innerHTML = `
       <div class="product-title">
         ${iconHtml}
-        <div>${prefixLabel ? `${prefixLabel} - ${item.name}` : item.name}</div>
+        <div>${titleText}</div>
       </div>
       ${showPrice ? `<div class="price">${formatIDR(item.price)}</div>` : ""}
       <div class="muted">Klik untuk pilih</div>
@@ -400,7 +406,7 @@ const renderGameGallery = () => {
     }
     button.addEventListener("click", () => {
       currentGameId = game.id;
-      gameSelect.value = game.label;
+      if (gameSelect) gameSelect.value = game.label;
       renderAmounts("game");
       renderProducts(game.items, "game", game.label);
       setSelectedGameTile(game.id);
@@ -438,7 +444,7 @@ const init = () => {
   const defaultCategory = "game";
   const defaultGame = games[0];
   currentGameId = defaultGame.id;
-  gameSelect.value = defaultGame.label;
+  if (gameSelect) gameSelect.value = defaultGame.label;
   renderGameGallery();
   setActiveTab(defaultCategory);
   renderAmounts(defaultCategory);
@@ -502,12 +508,34 @@ form.addEventListener("submit", (event) => {
   const amountText = sumAmount.textContent && sumAmount.textContent !== "-" ? sumAmount.textContent : "-";
   const productText = sumProduct.textContent && sumProduct.textContent !== "-" ? sumProduct.textContent : "Belum dipilih";
 
+  const amountNumeric = Number((amountText || "").replace(/\D/g, "")) || 0;
+  const bankAmountNumeric = Number((bankAmountInput?.value || "").replace(/\D/g, "")) || null;
+  const bankName = document.getElementById("bankAccountInput")?.value || "";
+
   const paymentText =
     category === "pln"
       ? "Pembayaran: via WhatsApp"
       : paySelect.value === "E-Wallet"
         ? `Metode Bayar: E-Wallet (${walletSelect.value})`
         : `Metode Bayar: ${paySelect.value}`;
+
+  const payload = {
+    category: sumCategory.textContent,
+    product: productText,
+    amount: amountNumeric,
+    target: targetInput.value,
+    payment_method: category === "pln" ? "WhatsApp" : paySelect.value,
+    wallet: paySelect.value === "E-Wallet" ? walletSelect.value : "",
+    bank_amount: bankAmountNumeric,
+    bank_name: bankName,
+    note: document.getElementById("noteInput").value || ""
+  };
+
+  fetch("submit.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  }).catch(() => {});
 
   const messageLines = [
     "Halo ERZA CELL, saya mau order:",
@@ -536,14 +564,16 @@ tabs.forEach((tab) => {
   });
 });
 
-gameSelect.addEventListener("change", (event) => {
-  const selected = getGameByLabel(event.target.value);
-  if (!selected) return;
-  currentGameId = selected.id;
-  renderAmounts("game");
-  renderProducts(selected.items, "game", selected.label);
-  setSelectedGameTile(selected.id);
-});
+if (gameSelect) {
+  gameSelect.addEventListener("change", (event) => {
+    const selected = getGameByLabel(event.target.value);
+    if (!selected) return;
+    currentGameId = selected.id;
+    renderAmounts("game");
+    renderProducts(selected.items, "game", selected.label);
+    setSelectedGameTile(selected.id);
+  });
+}
 
 bankAmountInput.addEventListener("input", () => {
   const digitsOnly = bankAmountInput.value.replace(/\D/g, "");
